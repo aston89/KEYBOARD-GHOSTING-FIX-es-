@@ -17,7 +17,7 @@
 
 ## 1. Introduction
 
-Mechanical keyboards, especially those running at high polling rates (1000 Hz or above), offer extremely fast and precise input. However, they can also expose subtle issues within the Windows input stack that lead to “ghosting” — unintended or spurious key events that confuse the system and cause erratic behavior.
+Mechanical keyboards, especially those running at high polling rates (1000 Hz or above), offer extremely fast and precise input. However, they can also expose subtle issues within the Windows input stack that lead to “ghosting”, unintended or spurious key events that confuse the system and cause erratic behavior.
 
 ---
 
@@ -33,7 +33,7 @@ Users experiencing this issue typically report:
 
 ## 2. Understanding "KeyboardDataQueueSize" and the Myth of Latency
 
-The KeyboardDataQueueSize registry flag defines the size of the FIFO buffer used by kbdclass.sys, the Windows keyboard class driver. When left on automatic (default), Windows dynamically sizes the buffer based on outdated assumptions — typically expecting a 125Hz polling rate like legacy PS/2 office keyboards.
+The KeyboardDataQueueSize registry flag defines the size of the FIFO buffer used by kbdclass.sys, the Windows keyboard class driver. When left on automatic (default), Windows dynamically sizes the buffer based on outdated assumptions, typically expecting a 125Hz polling rate like legacy PS/2 office keyboards.
 
 On modern mechanical keyboards running at 1000Hz polling rate, this auto-sizing becomes buggy, windows thinks it's a PS/2 keyboard and set a wrong value. The buffer can overflow or drop events, especially under fast or repeated keystrokes, causing ghosting, stuck keys, or phantom modifiers like WinKey triggering on its own.
 
@@ -91,7 +91,7 @@ keyboardfilter.sys is a Windows driver designed for security lockdown scenarios,
     Secure boot configurations
     Windows Defender Application Control (WDAC) lockdown profiles
 
-This driver allows administrators to block or remap specific keys at a very low level — even before the standard kbdclass.sys processes the input.
+This driver allows administrators to block or remap specific keys at a very low level, even before the standard kbdclass.sys processes the input.
 
 Why It’s Useless (or Harmful) for Gamers and Developers:
 For everyday users, especially gamers, developers, or fast typists, keyboardfilter does nothing beneficial and can introduce:
