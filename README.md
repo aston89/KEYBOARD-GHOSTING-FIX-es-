@@ -64,7 +64,7 @@ HKCU\Control Panel\Accessibility\Keyboard Response
 Inside this key:
     The Flags DWORD controls whether filtering behavior is enabled.
     Even when all individual delay/repeat values are set to 0 (disabled), a non-zero Flags value can silently activate input filtering.
-    This filtering can interfere with rapid key sequences, sometimes introducing artificial key repeats, phantom key releases, or delayed inputs — i.e., exactly the kind of ghosting and glitching issues fast typists encounter.
+    This filtering can interfere with rapid key sequences, sometimes introducing artificial key repeats, phantom key releases, or delayed inputs i.e., exactly the kind of ghosting and glitching issues fast typists encounter.
 
 Why It Happens Silently:
     Windows Updates or system repairs can occasionally reset this flag or preserve it across reinstalls without user consent.
