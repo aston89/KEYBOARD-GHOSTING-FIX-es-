@@ -190,5 +190,34 @@ Forcing TextInputHost.exe to run at high priority ensures it receives adequate C
 
 ---
 
+### Problem still persists? Check this out:
 
-*End of document.*
+If you've already applied the software tweaks but the issue occasionally returns, the root cause might be **mechanical resonance or switch-level defects**.  
+Here’s a checklist of hardware-related factors to consider:
+
+- **Switch resonance:**  
+  Some mechanical switches, especially *unlubricated linear or tactile types*, can resonate like a drum when keys are pressed rapidly.  
+  This is more common in switches with **nylon housings** or loose stems.
+
+- **Echo chamber under keys:**  
+  Large keys like the spacebar or Winkey may sit above a hollow gap in the PCB or case. This space can amplify internal vibrations and cause unintended signals.  
+  *Fix: add dampening foam (e.g., Poron, silicone) under the keycap or inside the housing.*
+
+- **Defective or misaligned switches:**  
+  Occasionally, a single faulty switch may produce **phantom keypresses** due to a worn contact leaf or irregular stem movement.  
+  *Fix: replace with a higher-tolerance or heavier switch (e.g., POM/Nylon mix).*
+
+- **Lack of factory lubrication:**  
+  Dry switches can create micro-friction or spring recoil artifacts detectable by sensitive firmware.  
+  *Fix: switch to pre-lubed silent variants or apply controlled lubing (only if you're experienced).*
+
+- **Keycap fit & acoustic feedback:**  
+  Loose or poorly fitted keycaps can amplify vibration or transmit it across the plate.  
+  *Fix: use keycaps with snug cross-stem fitting or add dampening o-rings if needed.*
+
+- **Actuation weight matters:**  
+  Avoid ultra-light actuation switches on high-risk keys (like Winkey or spacebar).  
+  *Heavier switches offer better mechanical isolation and reduce false activations due to micro-oscillations.*
+
+> These hardware tweaks, combined with software-side priority adjustments and input filtering, can dramatically improve stability on high-polling-rate keyboards.
+
