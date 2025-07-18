@@ -191,7 +191,7 @@ Forcing TextInputHost.exe to run at high priority ensures it receives adequate C
 
 ---
 
-### 10 Problem still persists? Check this out:
+## 10. Problem still persists? Check this out:
 
 If you've already applied the software tweaks but the issue occasionally returns, the root cause might be **mechanical resonance or switch-level defects**.  
 Here’s a checklist of hardware-related factors to consider:
