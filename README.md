@@ -158,11 +158,11 @@ p.s. you will still be able to suspend your pc, this settings is "ambiguous" and
 
 While this guide focuses on core Windows-level causes of ghosting and input issues on high-polling mechanical keyboards, several other factors can contribute to or exacerbate problems:
 
-    NKRO (N-Key Rollover) support and layers: Some keyboards use complex firmware layers or emulation modes that may interact oddly with Windows, especially if layers like NKRO or Fn key mappings are not properly handled. Disabling or toggling these layers can affect input reliability.
+NKRO (N-Key Rollover) support and layers: Some keyboards use complex firmware layers or emulation modes that may interact oddly with Windows, especially if layers like NKRO or Fn key mappings are not properly handled. Disabling or toggling these layers can affect input reliability.
 
-    Multiple HID devices for the same keyboard: Some keyboards expose multiple device interfaces (e.g., a separate HID for media keys, macro buttons, or lighting control). If these additional devices are not disabled or managed correctly, they can cause input conflicts or unexpected behavior.
+Multiple HID devices for the same keyboard: Some keyboards expose multiple device interfaces (e.g., a separate HID for media keys, macro buttons, or lighting control). If these additional devices are not disabled or managed correctly, they can cause input conflicts or unexpected behavior.
 
-    Third-party software and filters: Software like key loggers, input remappers, antivirus tools, or keyboard customization utilities (e.g., AutoHotkey, gaming suites) may install hooks or filters that interfere with raw input processing, causing latency or ghosting effects.
+Third-party software and filters: Software like key loggers, input remappers, antivirus tools, or keyboard customization utilities (e.g., AutoHotkey, gaming suites) may install hooks or filters that interfere with raw input processing, causing latency or ghosting effects.
 
 --- 
 
@@ -172,13 +172,13 @@ Most modern mechanical keyboards advertise NKRO (N-Key Rollover), which theoreti
 
 Why?
 
-    USB Bandwidth & Grouping: USB keyboards typically transmit key events in grouped fixed size frame reports. NKRO on USB often relies on tricks like multiple HID interfaces with special protocols which can lead to inconsistencies or even ghosting when improperly handled by drivers or the OS (the higher the polling rate, the more it could happen).
+USB Bandwidth & Grouping: USB keyboards typically transmit key events in grouped fixed size frame reports. NKRO on USB often relies on tricks like multiple HID interfaces with special protocols which can lead to inconsistencies or even ghosting when improperly handled by drivers or the OS (the higher the polling rate, the more it could happen).
 
-    Latency vs Complexity: Simpler rollover modes (5KRO-6KRO) reduce the overhead involved in interpreting input matrices and avoid driver-level hacks. This can improve latency and minimize error in high-polling-rate environments.
+Latency vs Complexity: Simpler rollover modes (5KRO-6KRO) reduce the overhead involved in interpreting input matrices and avoid driver-level hacks. This can improve latency and minimize error in high-polling-rate environments.
 
-    Real-World Use Cases: Even in demanding games like StarCraft II, it's rare to press more than 6 keys + modifiers at the exact same time. Unless you're using macros or complex chorded inputs, NKRO is generally overkill.
+Real-World Use Cases: Even in demanding games like StarCraft II, it's rare to press more than 6 keys + modifiers at the exact same time. Unless you're using macros or complex chorded inputs, NKRO is generally overkill.
 
-    Fallback Mode Benefits: Many high-end keyboards allow a switch back to 6KRO or 5+2 mode. This fallback can help ensure cleaner input parsing, especially on systems where compatibility, input stability, or fast typing are priorities (e.g., for coders, writers, or competitive gamers avoiding bloated input stacks).
+Fallback Mode Benefits: Many high-end keyboards allow a switch back to 6KRO or 5+2 mode. This fallback can help ensure cleaner input parsing, especially on systems where compatibility, input stability, or fast typing are priorities (e.g., for coders, writers, or competitive gamers avoiding bloated input stacks).
 
 Unless your use case explicitly needs extreme input concurrency, 5KRO/6KRO base mode on NKRO offers a safer, faster, and more consistent user experience, particularly when paired with a high polling rate and disabling the additional filtering layers.
 
@@ -188,7 +188,7 @@ Windows dynamically adjusts CPU scheduling between foreground and background pro
 This aggressive prioritization can reduce CPU time for input-related processes like TextInputHost.exe, causing input lag or glitches.
 Forcing TextInputHost.exe to run at high priority ensures it receives adequate CPU scheduling time despite these system default optimizations. (alternatively you can check "[melody tweaker](https://github.com/SheMelody/melodys-tweaker/releases)" on github for more info on how to tweak scheduling and ratio's)
 
-
+---
 
 
 *End of document.*
