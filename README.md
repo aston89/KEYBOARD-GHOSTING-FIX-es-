@@ -1,7 +1,7 @@
 
 # Mechanical Keyboard Ghosting with High Polling Rate on Windows
 
-## Table of Contents
+## Table of Contents:
 
 -1a. Introduction
 -1b. Symptoms
