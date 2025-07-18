@@ -3,16 +3,16 @@
 
 ## Table of Contents
 
-1a.	Introduction
-1b. Symptoms
-2.	Understanding "KeyboardDataQueueSize" and the Myth of Latency
-3.	Different Types of Keyboard Input and Why Ghosting Differs in Games
-4. 	The Hidden Culprit: Accessibility Flags That Stay Active (Even When You Think They're Off)
-5.	keyboardfilter.sys: The Silent Hardware Filter You (Probably) Don’t Need
-6.	Preventing USB Polling Rate Drifting and Power Management workarounds to reduce input lag
-7.	Other Potential Causes and Considerations
-8.	5KRO & 6KRO vs NKRO: Why "Less" Is Sometimes Better
-9.	EXTRA step : Set TextInputHost.exe to High Priority at User Logon
+-1a. Introduction
+-1b. Symptoms
+-2. Understanding "KeyboardDataQueueSize" and the Myth of Latency
+-3. Different Types of Keyboard Input and Why Ghosting Differs in Games
+-4. The Hidden Culprit: Accessibility Flags That Stay Active (Even When You Think They're Off)
+-5. keyboardfilter.sys: The Silent Hardware Filter You (Probably) Don’t Need
+-6. Preventing USB Polling Rate Drifting and Power Management workarounds to reduce input lag
+-7. Other Potential Causes and Considerations
+-8. 5KRO & 6KRO vs NKRO: Why "Less" Is Sometimes Better
+-9. EXTRA step : Set TextInputHost.exe to High Priority at User Logon
 
 ---
 
