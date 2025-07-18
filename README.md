@@ -3,9 +3,9 @@
 
 ## Table of Contents:
 
-- 1a. Introduction
-- 1b. Symptoms
-- 2. Understanding "KeyboardDataQueueSize" and the Myth of Latency
+- 1a Introduction
+- 1b Symptoms
+- 2 Understanding "KeyboardDataQueueSize" and the Myth of Latency
 - 3. Different Types of Keyboard Input and Why Ghosting Differs in Games
 - 4. The Hidden Culprit: Accessibility Flags That Stay Active (Even When You Think They're Off)
 - 5. keyboardfilter.sys: The Silent Hardware Filter You (Probably) Don’t Need
