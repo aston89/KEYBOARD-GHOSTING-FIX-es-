@@ -12,6 +12,7 @@
 6.	Preventing USB Polling Rate Drifting and Power Management workarounds to reduce input lag
 7.	Other Potential Causes and Considerations 1
 8.	5KRO & 6KRO vs NKRO: Why "Less" Is Sometimes Better
+9.	EXTRA step : Set TextInputHost.exe to High Priority at User Logon
 
 ---
 
@@ -62,13 +63,13 @@ Windows includes several built-in accessibility features — like StickyKeys, Fi
 One critical registry path is:
 HKCU\Control Panel\Accessibility\Keyboard Response
 Inside this key:
-    The Flags DWORD controls whether filtering behavior is enabled.
-    Even when all individual delay/repeat values are set to 0 (disabled), a non-zero Flags value can silently activate input filtering.
-    This filtering can interfere with rapid key sequences, sometimes introducing artificial key repeats, phantom key releases, or delayed inputs i.e., exactly the kind of ghosting and glitching issues fast typists encounter.
+The Flags DWORD controls whether filtering behavior is enabled.
+Even when all individual delay/repeat values are set to 0 (disabled), a non-zero Flags value can silently activate input filtering.
+This filtering can interfere with rapid key sequences, sometimes introducing artificial key repeats, phantom key releases, or delayed inputs i.e., exactly the kind of ghosting and glitching issues fast typists encounter.
 
 Why It Happens Silently:
-    Windows Updates or system repairs can occasionally reset this flag or preserve it across reinstalls without user consent.
-    No clear UI toggle exists for fully disabling this behavior at the driver level; only registry-level edits work.
+Windows Updates or system repairs can occasionally reset this flag or preserve it across reinstalls without user consent.
+No clear UI toggle exists for fully disabling this behavior at the driver level; only registry-level edits work.
 
 Check registry key for hidden accessibility flag :
 
@@ -77,8 +78,7 @@ Get-ItemProperty -Path "HKCU:\Control Panel\Accessibility\Keyboard Response" -Na
 
 regedit : 
 HKEY_CURRENT_USER\Control Panel\Accessibility\Keyboard Response
-
-`Flags` must be zero to ensure filtering is truly disabled.
+Flags keyword must be zero to ensure filtering is truly disabled.
 
 ---
 
@@ -181,5 +181,14 @@ Why?
     Fallback Mode Benefits: Many high-end keyboards allow a switch back to 6KRO or 5+2 mode. This fallback can help ensure cleaner input parsing, especially on systems where compatibility, input stability, or fast typing are priorities (e.g., for coders, writers, or competitive gamers avoiding bloated input stacks).
 
 Unless your use case explicitly needs extreme input concurrency, 5KRO/6KRO base mode on NKRO offers a safer, faster, and more consistent user experience, particularly when paired with a high polling rate and disabling the additional filtering layers.
+
+## 9. EXTRA step : Set TextInputHost.exe to High Priority at User Logon
+
+Windows dynamically adjusts CPU scheduling between foreground and background processes, often assigning a much smaller time quantum to background tasks to save energy.
+This aggressive prioritization can reduce CPU time for input-related processes like TextInputHost.exe, causing input lag or glitches.
+Forcing TextInputHost.exe to run at high priority ensures it receives adequate CPU scheduling time despite these system default optimizations. (alternatively you can check "[melody tweaker](https://github.com/SheMelody/melodys-tweaker/releases)" on github for more info on how to tweak scheduling and ratio's)
+
+
+
 
 *End of document.*
