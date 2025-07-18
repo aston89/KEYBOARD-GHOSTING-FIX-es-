@@ -3,7 +3,7 @@
 
 ## Table of Contents
 
-1.	Introduction 
+1a.	Introduction 
 1b. 	Symptoms  
 2.	Understanding "KeyboardDataQueueSize" and the Myth of Latency
 3.	Different Types of Keyboard Input and Why Ghosting Differs in Games
@@ -16,7 +16,7 @@
 
 ---
 
-## 1. Introduction
+## 1a. Introduction
 
 Mechanical keyboards, especially those running at high polling rates (1000 Hz or above), offer extremely fast and precise input. However, they can also expose subtle issues within the Windows input stack that lead to “ghosting”, unintended or spurious key events that confuse the system and cause erratic behavior.
 
