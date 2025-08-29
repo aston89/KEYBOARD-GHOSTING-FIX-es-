@@ -13,7 +13,8 @@
 - 7 Other Potential Causes and Considerations
 - 8 5KRO & 6KRO vs NKRO: Why "Less" Is Sometimes Better
 - 9 EXTRA step : Set TextInputHost.exe to High Priority at User Logon
-- 10 Problem still persists? Check this out.
+- 10 Problem still persists? Check the keyboard.
+- 11 Problem still persists? Check your hardware (peripherals and more). 
 
 ---
 
@@ -191,25 +192,25 @@ Forcing TextInputHost.exe to run at high priority ensures it receives adequate C
 
 ---
 
-## 10. Problem still persists? Check this out:
+## 10. Problem still persists? Check the keyboard:
 
 If you've already applied the software tweaks but the issue occasionally returns, the root cause might be **mechanical resonance or switch-level defects**.  
-Here’s a checklist of hardware-related factors to consider:
+Here’s a checklist of keyboard hardware-related factors to consider:
 
 - **Switch resonance:**  
   Some mechanical switches, especially *unlubricated linear or tactile types*, can resonate like a drum when keys are pressed rapidly.  
-  This is more common in switches with **nylon housings** or loose stems.
+  This is more common in switches with **nylon housings** or loose stems. (Hot swap socket loose, pin on switch half broken etc etc)
 
 - **Echo chamber under keys:**  
-  Large keys like the spacebar or Winkey may sit above a hollow gap in the PCB or case. This space can amplify internal vibrations and cause unintended signals.  
+  Large keys like the spacebar or Winkey may sit above a hollow gap in the PCB or case. This space can amplify internal vibrations and cause unintended signals.  (In this case, its more likely an half-broken metal contact broken inside the switch that still work)
   *Fix: add dampening foam (e.g., Poron, silicone) under the keycap or inside the housing.*
 
 - **Defective or misaligned switches:**  
   Occasionally, a single faulty switch may produce **phantom keypresses** due to a worn contact leaf or irregular stem movement.  
   *Fix: replace with a higher-tolerance or heavier switch (e.g., POM/Nylon mix).*
 
-- **Lack of factory lubrication:**  
-  Dry switches can create micro-friction or spring recoil artifacts detectable by sensitive firmware.  
+- **Lack or excess of lubrication:**  
+  Dry or drenched switches can create micro-friction or spring recoil artifacts detectable by sensitive firmware.  
   *Fix: switch to pre-lubed silent variants or apply controlled lubing (only if you're experienced).*
 
 - **Keycap fit & acoustic feedback:**  
@@ -220,5 +221,41 @@ Here’s a checklist of hardware-related factors to consider:
   Avoid ultra-light actuation switches on high-risk keys (like Winkey or spacebar).  
   *Heavier switches offer better mechanical isolation and reduce false activations due to micro-oscillations.*
 
+---
+
+## 10. Problem still persists? Check your hardware (peripherals and more):
+
+- **Bridged PCI/PCIe Sound Cards**
+Creative Sound Blaster (especially X-Fi, Audigy with PCI bridging or legacy emulation)
+Some ASUS Essence or other PCIe cards with multiple controllers that interfere with shared IRQs
+Typical issue: drivers holding IRQ lines even when disabled → unstable NKRO/6KRO, key jitter
+
+- **External USB Controllers or PCI USB Hubs**
+Older PCIe USB 3.0 hubs or non-certified hubs → selective suspend and polling issues
+USB expansion cards with VIA/NEC/Fresco Logic chips that poorly handle the host controller
+Symptom: mechanical keyboards miss keystrokes during fast combos or intensive macros
+
+- **Graphics Cards with Aggressive Passthrough or Overlay Software**
+Older AMD/NVIDIA GPUs using DirectInput/RawInput hooks (e.g., Radeon Overlay, RivaTuner, Steam Overlay)
+Problem: input can conflict with app-level reading → ghosting or dropped keys in some apps
+
+- **PCIe Capture/Acquisition Cards**
+Elgato HD60/HD60 Pro, some Blackmagic Decklink cards
+High-polling drivers or aggressive IRQ handling may “steal” interrupts from HID devices
+
+- **Legacy PS/2 Controllers & Hybrid Keyboards**
+PS/2 keyboards with USB adapters → some Intel ICH/AMD southbridge controllers mishandle rollover above 6KRO
+Symptom: lost key combinations, ghosting, or “jumping” input
+
+- **Virtual Input-Handling Devices or Gaming Software**
+Keyboards and gaming peripherals using Razer Synapse, Logitech Gaming Software, Corsair iCUE
+Virtual drivers intercepting input may cause conflicts in non-standard applications
+
+- **Legacy PCIe Network Cards (Wi-Fi / LAN)**
+Older Intel/Realtek NICs or beta drivers generating interrupt storms under load
+Symptom: high IRQ load → dropped keystrokes on high-polling mechanical keyboards
+
+> **Note:** Any PCI/PCIe device generating high interrupts or using shared buses can interfere with high-priority input devices. The X-Fi (emu20k2) is the most well-known case up to date expecially under win10 22h2 and upper (completely broken drivers), but these other hardware types can cause similar issues.
 > These hardware tweaks, combined with software-side priority adjustments and input filtering, can dramatically improve stability on high-polling-rate keyboards.
+
 
