@@ -59,7 +59,7 @@ Because of this, the ghosting and input glitches described in this guide mainly 
 
 ## 4. The Hidden Culprit: Accessibility Flags That Stay Active (Even When You Think They're Off)
 
-Windows includes several built-in accessibility features — like StickyKeys, FilterKeys, BounceKeys, and SlowKeys — originally designed to help users with motor impairments. However, these features can remain partially active at the driver level even if they appear disabled in the Control Panel or Settings UI.
+Windows includes several built-in accessibility features - like StickyKeys, FilterKeys, BounceKeys, and SlowKeys - originally designed to help users with motor impairments. However, these features can remain partially active at the driver level even if they appear disabled in the Control Panel or Settings UI.
 
 One critical registry path is:
 HKCU\Control Panel\Accessibility\Keyboard Response
