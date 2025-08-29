@@ -223,7 +223,7 @@ Here’s a checklist of keyboard hardware-related factors to consider:
 
 ---
 
-## 10. Problem still persists? Check your hardware (peripherals and more):
+## 11. Problem still persists? Check your hardware (peripherals and more):
 
 - **Bridged PCI/PCIe Sound Cards**
 Creative Sound Blaster (especially X-Fi, Audigy with PCI bridging or legacy emulation)
